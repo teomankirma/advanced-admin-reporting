@@ -7,6 +7,7 @@ import { Language } from "./types";
 import translations from "./translations";
 import combinators from "./combinators";
 import CombinatorSelector from "./CombinatorSelector";
+import ValueEditor from "./ValueEditor";
 
 function App() {
   const [language, setLanguage] = useState<Language>("en");
@@ -35,6 +36,7 @@ function App() {
         combinators={combinators[language]}
         controlElements={{
           combinatorSelector: CombinatorSelector,
+          valueEditor: ValueEditor,
         }}
       />
       <pre>{formatQuery(query, "sql")}</pre>
