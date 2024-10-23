@@ -8,6 +8,7 @@ import translations from "./translations";
 import combinators from "./combinators";
 import CombinatorSelector from "./CombinatorSelector";
 import ValueEditor from "./ValueEditor";
+import valueProcessor from "./valueProcessor";
 
 function App() {
   const [language, setLanguage] = useState<Language>("en");
@@ -39,7 +40,7 @@ function App() {
           valueEditor: ValueEditor,
         }}
       />
-      <pre>{formatQuery(query, "sql")}</pre>
+      <pre>{formatQuery(query, { format: "sql", valueProcessor })}</pre>
       <pre>{formatQuery(query, "json")}</pre>
     </>
   );
