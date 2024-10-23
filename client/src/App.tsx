@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { QueryBuilder, formatQuery, RuleGroupType } from "react-querybuilder";
 import "react-querybuilder/dist/query-builder.css";
+import fields from "./fields";
+import getOperators from "./getOperators";
 
 function App() {
   const [query, setQuery] = useState<RuleGroupType>({
@@ -12,8 +14,9 @@ function App() {
   return (
     <>
       <QueryBuilder
-        fields={[{ name: "test", label: "Test" }]}
+        fields={fields}
         query={query}
+        getOperators={getOperators}
         onQueryChange={(q) => setQuery(q)}
       />
       <pre>{formatQuery(query, "sql")}</pre>
